@@ -1,0 +1,9 @@
+{
+  "id": "obsidian-cloudflare-sync",
+  "name": "Cloud Sync",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Private Obsidian synchronization on your own Cloudflare account.",
+  "author": "Obsidian Cloudflare Sync contributors",
+  "isDesktopOnly": false
+}

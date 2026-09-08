@@ -1,0 +1,27 @@
+{
+  "name": "obsidian-cloudflare-sync",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Private, end-to-end encrypted Obsidian sync on Cloudflare.",
+  "packageManager": "pnpm@11.24.0",
+  "scripts": {
+    "build": "pnpm --filter @obsidian-cloudflare-sync/shared build && pnpm --filter @obsidian-cloudflare-sync/worker build && pnpm --filter @obsidian-cloudflare-sync/plugin build",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm check:artifacts",
+    "check:artifacts": "node scripts/check-artifacts.mjs",
+    "lint": "eslint . --max-warnings=0",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -b"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250906.0",
+    "@eslint/js": "^9.36.0",
+    "@types/node": "^24.4.0",
+    "esbuild": "^0.25.9",
+    "eslint": "^9.36.0",
+    "globals": "^16.4.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.0",
+    "vitest": "^3.2.4"
+  }
+}

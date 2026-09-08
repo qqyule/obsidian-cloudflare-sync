@@ -1,0 +1,11 @@
+# Copy this file to wrangler.toml only for an explicitly configured local test.
+# Provisioning owns the account-specific Worker and bucket names.
+name = "obsidian-cloudflare-sync"
+main = "dist/index.js"
+compatibility_date = "2026-09-08"
+workers_dev = true
+
+# Enable this only after provisioning creates the test bucket in an isolated account.
+# [[r2_buckets]]
+# binding = "SYNC_BUCKET"
+# bucket_name = "replace-with-an-isolated-test-bucket"

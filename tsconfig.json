@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    { "path": "shared/protocol" },
+    { "path": "worker" },
+    { "path": "plugin" }
+  ]
+}

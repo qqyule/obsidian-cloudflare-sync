@@ -1,0 +1,6 @@
+packages:
+  - plugin
+  - worker
+  - shared/protocol
+allowBuilds:
+  esbuild: set this to true or false

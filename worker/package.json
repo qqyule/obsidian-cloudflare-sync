@@ -1,0 +1,13 @@
+{
+  "name": "@obsidian-cloudflare-sync/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@obsidian-cloudflare-sync/shared": "workspace:*",
+    "hono": "^4.9.7"
+  }
+}
