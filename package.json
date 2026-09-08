@@ -6,9 +6,11 @@
   "packageManager": "pnpm@11.24.0",
   "scripts": {
     "build": "pnpm --filter @obsidian-cloudflare-sync/shared build && pnpm --filter @obsidian-cloudflare-sync/worker build && pnpm --filter @obsidian-cloudflare-sync/plugin build",
-    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm check:artifacts",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm check:artifacts && pnpm check:fixtures",
     "check:artifacts": "node scripts/check-artifacts.mjs",
+    "check:fixtures": "node scripts/check-obsidian-fixture.mjs",
     "lint": "eslint . --max-warnings=0",
+    "prepare:obsidian-test-vault": "node scripts/prepare-obsidian-test-vault.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc -b"

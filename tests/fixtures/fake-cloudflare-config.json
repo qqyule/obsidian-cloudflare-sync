@@ -1,0 +1,5 @@
+{
+  "accountId": "fake-account-id",
+  "apiToken": "fake-token-do-not-use",
+  "bucketName": "fake-sync-bucket"
+}

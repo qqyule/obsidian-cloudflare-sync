@@ -23,7 +23,21 @@ pnpm check
 
 `pnpm check` runs lint, TypeScript project checks, unit/integration tests, and all three package builds. The plugin build produces a side-loadable artifact under `plugin/dist/`; the Worker build produces `worker/dist/index.js`.
 
-The current acceptance evidence covers automated checks and build artifacts. Loading the plugin in a real Obsidian test vault is a separate validation item and is not claimed by this baseline.
+If the registry configured on the machine is unavailable, keep the repository configuration unchanged and use the one-time fallback below:
+
+```sh
+CI=true pnpm install --frozen-lockfile --registry=https://registry.npmjs.org/
+```
+
+The repository includes a sanitized Obsidian fixture. After `pnpm check`, prepare a disposable Vault for a desktop smoke test:
+
+```sh
+pnpm prepare:obsidian-test-vault -- --target ob-test/LEO-63
+```
+
+Open `ob-test/LEO-63` in Obsidian, enable **Cloud Sync**, confirm the `Cloud Sync: not configured` status-bar text, and run **Cloud Sync: Show baseline status**. The existing `ob-test/` directory is local test data and is ignored by Git. Mobile and production sync flows are not claimed by this baseline.
+
+See [`docs/test-account.md`](docs/test-account.md) before any explicitly authorized Cloudflare validation.
 
 ## Safety boundaries
 

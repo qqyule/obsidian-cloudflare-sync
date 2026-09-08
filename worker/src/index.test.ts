@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { app } from "./index";
+import { app, createApp } from "./index";
 
 describe("worker baseline contract", () => {
   it("returns degraded health until the R2 binding exists", async () => {
@@ -17,6 +17,14 @@ describe("worker baseline contract", () => {
 
   it("reports ready health when an R2 binding exists", async () => {
     const response = await app.request("http://localhost/v1/health", {}, { SYNC_BUCKET: {} as R2Bucket });
+
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject({ status: "ok", storage: "ready" });
+  });
+
+  it("allows a fake storage adapter to drive health without an R2 binding", async () => {
+    const fakeApp = createApp(() => ({ getStatus: () => "ready" }));
+    const response = await fakeApp.request("http://localhost/v1/health");
 
     expect(response.status).toBe(200);
     expect(await response.json()).toMatchObject({ status: "ok", storage: "ready" });
